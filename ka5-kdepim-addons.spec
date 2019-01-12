@@ -1,14 +1,14 @@
-%define		kdeappsver	18.12.0
+%define		kdeappsver	18.12.1
 %define		qtver		5.9.0
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	18.12.0
+Version:	18.12.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	c3b5590b75ecc8b005f89efa9f850777
+# Source0-md5:	a64df6a206b6a96ae649161323029f7c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -24,31 +24,31 @@ BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	gpgme-qt5-devel >= 1.8.0
-BuildRequires:	ka5-akonadi-calendar-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-contacts-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-notes-devel >= 18.12.0
-BuildRequires:	ka5-calendarsupport-devel >= 18.12.0
-BuildRequires:	ka5-eventviews-devel >= 18.12.0
-BuildRequires:	ka5-grantleetheme-devel >= 18.12.0
-BuildRequires:	ka5-incidenceeditor-devel >= 18.12.0
-BuildRequires:	ka5-kcalutils-devel >= 18.12.0
-BuildRequires:	ka5-kdepim-apps-libs-devel >= 18.12.0
+BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-contacts-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-notes-devel >= %{kdeappsver}
+BuildRequires:	ka5-calendarsupport-devel >= %{kdeappsver}
+BuildRequires:	ka5-eventviews-devel >= %{kdeappsver}
+BuildRequires:	ka5-grantleetheme-devel >= %{kdeappsver}
+BuildRequires:	ka5-incidenceeditor-devel >= %{kdeappsver}
+BuildRequires:	ka5-kcalutils-devel >= %{kdeappsver}
+BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
 BuildRequires:	ka5-kidentitymanagement-devel
-BuildRequires:	ka5-kimap-devel >= 18.12.0
-BuildRequires:	ka5-kitinerary-devel >= 18.12.0
-BuildRequires:	ka5-kmailtransport-devel >= 18.12.0
-BuildRequires:	ka5-kpimtextedit-devel >= 18.12.0
-BuildRequires:	ka5-kpkpass-devel >= 18.12.0
-BuildRequires:	ka5-ktnef-devel >= 18.12.0
-BuildRequires:	ka5-libgravatar-devel >= 18.12.0
-BuildRequires:	ka5-libkdepim-devel >= 18.12.0
-BuildRequires:	ka5-libkleo-devel >= 18.12.0
-BuildRequires:	ka5-libksieve-devel >= 18.12.0
-BuildRequires:	ka5-mailcommon-devel >= 18.12.0
-BuildRequires:	ka5-mailimporter-devel >= 18.12.0
-BuildRequires:	ka5-messagelib-devel >= 18.12.0
-BuildRequires:	ka5-pimcommon-devel >= 18.12.0
+BuildRequires:	ka5-kimap-devel >= %{kdeappsver}
+BuildRequires:	ka5-kitinerary-devel >= %{kdeappsver}
+BuildRequires:	ka5-kmailtransport-devel >= %{kdeappsver}
+BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
+BuildRequires:	ka5-kpkpass-devel >= %{kdeappsver}
+BuildRequires:	ka5-ktnef-devel >= %{kdeappsver}
+BuildRequires:	ka5-libgravatar-devel >= %{kdeappsver}
+BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
+BuildRequires:	ka5-libkleo-devel >= %{kdeappsver}
+BuildRequires:	ka5-libksieve-devel >= %{kdeappsver}
+BuildRequires:	ka5-mailcommon-devel >= %{kdeappsver}
+BuildRequires:	ka5-mailimporter-devel >= %{kdeappsver}
+BuildRequires:	ka5-messagelib-devel >= %{kdeappsver}
+BuildRequires:	ka5-pimcommon-devel >= %{kdeappsver}
 BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
 BuildRequires:	kf5-kconfig-devel >= 5.51.0
 BuildRequires:	kf5-kdbusaddons-devel >= 5.51.0
@@ -61,6 +61,7 @@ BuildRequires:	kf5-kparts-devel >= 5.51.0
 BuildRequires:	kf5-kxmlgui-devel >= 5.51.0
 BuildRequires:	kf5-prison-devel >= 5.51.0
 BuildRequires:	kf5-syntax-highlighting-devel >= 5.51.0
+BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -80,14 +81,14 @@ functionality.
 install -d build
 cd build
 %cmake \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
 
@@ -103,9 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 /etc/xdg/kdepim-addons.renamecategories
 /etc/xdg/kmail.antispamrc
 /etc/xdg/kmail.antivirusrc
-%attr(755,root,root) %{_bindir}/akonadimailreader
-%attr(755,root,root) %{_bindir}/coisceim
-%attr(755,root,root) %{_bindir}/etm_usage
+#%%attr(755,root,root) %{_bindir}/akonadimailreader
+#%%attr(755,root,root) %{_bindir}/coisceim
+#%%attr(755,root,root) %{_bindir}/etm_usage
 %attr(755,root,root) %{_bindir}/kmail_antivir.sh
 %attr(755,root,root) %{_bindir}/kmail_clamav.sh
 %attr(755,root,root) %{_bindir}/kmail_fprot.sh
@@ -115,15 +116,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
 %attr(755,root,root) %ghost %{_libdir}/libadblocklibprivate.so.5
 %attr(755,root,root) %{_libdir}/libadblocklibprivate.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcoisceim_widget.so.5
-%attr(755,root,root) %{_libdir}/libcoisceim_widget.so.5.*.*
+#%%attr(755,root,root) %ghost %{_libdir}/libcoisceim_widget.so.5
+#%%attr(755,root,root) %{_libdir}/libcoisceim_widget.so.5.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkaddressbookimportexportlibprivate.so.5
 %attr(755,root,root) %{_libdir}/libkaddressbookimportexportlibprivate.so.5.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkaddressbookmergelibprivate.so.5
 %attr(755,root,root) %{_libdir}/libkaddressbookmergelibprivate.so.5.*.*
 %attr(755,root,root) %ghost %{_libdir}/libshorturlpluginprivate.so.5
 %attr(755,root,root) %{_libdir}/libshorturlpluginprivate.so.5.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/coisceimpart.so
+#%%attr(755,root,root) %{_libdir}/qt5/plugins/coisceimpart.so
 %dir %{_libdir}/qt5/plugins/contacteditor
 %attr(755,root,root) %{_libdir}/qt5/plugins/contacteditor/addresslocationeditorplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/evolutionv1importerplugin.so
@@ -204,20 +205,20 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/libpimcalendarsplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/qmldir
-%{_desktopdir}/org.kde.akonadimailreader.desktop
-%{_datadir}/config.kcfg/mailreader.kcfg
+#%%{_desktopdir}/org.kde.akonadimailreader.desktop
+#%%{_datadir}/config.kcfg/mailreader.kcfg
 %{_datadir}/contacteditor
 %{_datadir}/kconf_update/webengineurlinterceptoradblock.upd
 %{_datadir}/kmail2
-%{_datadir}/kservices5/coisceimpart.desktop
+#%%{_datadir}/kservices5/coisceimpart.desktop
 %dir %{_datadir}/kservices5/korganizer
 %{_datadir}/kservices5/korganizer/datenums.desktop
 %{_datadir}/kservices5/korganizer/picoftheday.desktop
 %{_datadir}/kservices5/korganizer/thisdayinhistory.desktop
-%{_datadir}/kxmlgui5/akonadimailreader
-%{_datadir}/messageviewer/themes
-%dir %{_datadir}/messageviewerplugins
-%{_datadir}/messageviewerplugins/externalscriptexample.desktop
+#%%{_datadir}/kxmlgui5/akonadimailreader
+#%%{_datadir}/messageviewer/themes
+#%%dir %{_datadir}/messageviewerplugins
+#%%{_datadir}/messageviewerplugins/externalscriptexample.desktop
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/CMakeLists.txt
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/plugin.json.impl
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/plugineditor.cpp
