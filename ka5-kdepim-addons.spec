@@ -1,14 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	a64df6a206b6a96ae649161323029f7c
+# Source0-md5:	3e33d66bb5b020be5cfbb19bb3dd17b0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -34,7 +35,7 @@ BuildRequires:	ka5-grantleetheme-devel >= %{kdeappsver}
 BuildRequires:	ka5-incidenceeditor-devel >= %{kdeappsver}
 BuildRequires:	ka5-kcalutils-devel >= %{kdeappsver}
 BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
-BuildRequires:	ka5-kidentitymanagement-devel
+BuildRequires:	ka5-kidentitymanagement-devel >= %{kdeappsver}
 BuildRequires:	ka5-kimap-devel >= %{kdeappsver}
 BuildRequires:	ka5-kitinerary-devel >= %{kdeappsver}
 BuildRequires:	ka5-kmailtransport-devel >= %{kdeappsver}
@@ -49,18 +50,19 @@ BuildRequires:	ka5-mailcommon-devel >= %{kdeappsver}
 BuildRequires:	ka5-mailimporter-devel >= %{kdeappsver}
 BuildRequires:	ka5-messagelib-devel >= %{kdeappsver}
 BuildRequires:	ka5-pimcommon-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
-BuildRequires:	kf5-kconfig-devel >= 5.51.0
-BuildRequires:	kf5-kdbusaddons-devel >= 5.51.0
-BuildRequires:	kf5-kdeclarative-devel >= 5.51.0
-BuildRequires:	kf5-kholidays-devel >= 5.51.0
-BuildRequires:	kf5-ki18n-devel >= 5.51.0
-BuildRequires:	kf5-kiconthemes-devel >= 5.51.0
-BuildRequires:	kf5-kio-devel >= 5.51.0
-BuildRequires:	kf5-kparts-devel >= 5.51.0
-BuildRequires:	kf5-kxmlgui-devel >= 5.51.0
-BuildRequires:	kf5-prison-devel >= 5.51.0
-BuildRequires:	kf5-syntax-highlighting-devel >= 5.51.0
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdeclarative-devel >= %{kframever}
+BuildRequires:	kf5-kholidays-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-kparts-devel >= %{kframever}
+BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf5-prison-devel >= %{kframever}
+BuildRequires:	kf5-syntax-highlighting-devel >= %{kframever}
+BuildRequires:	libmarkdown-devel
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -82,6 +84,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
@@ -124,6 +127,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkaddressbookmergelibprivate.so.5.*.*
 %attr(755,root,root) %ghost %{_libdir}/libshorturlpluginprivate.so.5
 %attr(755,root,root) %{_libdir}/libshorturlpluginprivate.so.5.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgrammarcommon.so.5
+%attr(755,root,root) %{_libdir}/libgrammarcommon.so.5.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkmailgrammalecte.so.5
+%attr(755,root,root) %{_libdir}/libkmailgrammalecte.so.5.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkmaillanguagetool.so.5
+%attr(755,root,root) %{_libdir}/libkmaillanguagetool.so.5.*.*
+%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/kmail_grammalecteplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/kmail_languagetoolplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/messageviewer_gravatarconfigplugin.so
 #%%attr(755,root,root) %{_libdir}/qt5/plugins/coisceimpart.so
 %dir %{_libdir}/qt5/plugins/contacteditor
 %attr(755,root,root) %{_libdir}/qt5/plugins/contacteditor/addresslocationeditorplugin.so
@@ -132,6 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/gearyimporterplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/nylasmailimporterplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/operaimporterplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/kmail_markdownplugin.so
 %dir %{_libdir}/qt5/plugins/kaddressbook
 %attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/kaddressbook_checkgravatarplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/kaddressbook_importexportcsvplugin.so
@@ -215,6 +228,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/korganizer/datenums.desktop
 %{_datadir}/kservices5/korganizer/picoftheday.desktop
 %{_datadir}/kservices5/korganizer/thisdayinhistory.desktop
+
+
 #%%{_datadir}/kxmlgui5/akonadimailreader
 #%%{_datadir}/messageviewer/themes
 #%%dir %{_datadir}/messageviewerplugins
