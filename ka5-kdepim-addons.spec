@@ -28,6 +28,7 @@ BuildRequires:	gpgme-qt5-devel >= 1.8.0
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-contacts-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-import-wizard-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-notes-devel >= %{kdeappsver}
 BuildRequires:	ka5-calendarsupport-devel >= %{kdeappsver}
 BuildRequires:	ka5-eventviews-devel >= %{kdeappsver}
