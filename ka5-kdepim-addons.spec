@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	3c39987a6d006607c48943d158e8241d
+# Source0-md5:	c5b615e205e95046eed8ac7e1a14c110
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -105,27 +105,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 /etc/xdg/kmail.antispamrc
 /etc/xdg/kmail.antivirusrc
-#%%attr(755,root,root) %{_bindir}/akonadimailreader
-#%%attr(755,root,root) %{_bindir}/coisceim
-#%%attr(755,root,root) %{_bindir}/etm_usage
 %attr(755,root,root) %{_bindir}/kmail_antivir.sh
 %attr(755,root,root) %{_bindir}/kmail_clamav.sh
 %attr(755,root,root) %{_bindir}/kmail_fprot.sh
 %attr(755,root,root) %{_bindir}/kmail_sav.sh
-%attr(755,root,root) %ghost %{_libdir}/libadblocklibprivate.so.5
-%attr(755,root,root) %{_libdir}/libadblocklibprivate.so.5.*.*
-#%%attr(755,root,root) %ghost %{_libdir}/libcoisceim_widget.so.5
-#%%attr(755,root,root) %{_libdir}/libcoisceim_widget.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkaddressbookmergelibprivate.so.5
-%attr(755,root,root) %{_libdir}/libkaddressbookmergelibprivate.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libshorturlpluginprivate.so.5
-%attr(755,root,root) %{_libdir}/libshorturlpluginprivate.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgrammarcommon.so.5
-%attr(755,root,root) %{_libdir}/libgrammarcommon.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkmailgrammalecte.so.5
-%attr(755,root,root) %{_libdir}/libkmailgrammalecte.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkmaillanguagetool.so.5
-%attr(755,root,root) %{_libdir}/libkmaillanguagetool.so.5.*.*
+%ghost %{_libdir}/libadblocklibprivate.so.5
+%attr(755,root,root) %{_libdir}/libadblocklibprivate.so.*.*.*
+%ghost %{_libdir}/libkaddressbookmergelibprivate.so.5
+%attr(755,root,root) %{_libdir}/libkaddressbookmergelibprivate.so.*.*.*
+%ghost %{_libdir}/libshorturlpluginprivate.so.5
+%attr(755,root,root) %{_libdir}/libshorturlpluginprivate.so.*.*.*
+%ghost %{_libdir}/libgrammarcommon.so.5
+%attr(755,root,root) %{_libdir}/libgrammarcommon.so.*.*.*
+%ghost %{_libdir}/libkmailgrammalecte.so.5
+%attr(755,root,root) %{_libdir}/libkmailgrammalecte.so.*.*.*
+%ghost %{_libdir}/libkmaillanguagetool.so.5
+%attr(755,root,root) %{_libdir}/libkmaillanguagetool.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/evolutionv1importerplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/evolutionv2importerplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/gearyimporterplugin.so
@@ -148,10 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/libpimcalendarsplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/qmldir
-#%%{_desktopdir}/org.kde.akonadimailreader.desktop
-#%%{_datadir}/config.kcfg/mailreader.kcfg
 %{_datadir}/kconf_update/webengineurlinterceptoradblock.upd
-#%%{_datadir}/kservices5/coisceimpart.desktop
 %dir %{_datadir}/kservices5/korganizer
 %{_datadir}/kservices5/korganizer/datenums.desktop
 %{_datadir}/kservices5/korganizer/picoftheday.desktop
@@ -160,16 +152,16 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/contacteditor
 %dir %{_libdir}/contacteditor/editorpageplugins
 %attr(755,root,root) %{_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
-%attr(755,root,root) %ghost %{_libdir}/libdkimverifyconfigure.so.5
-%attr(755,root,root) %{_libdir}/libdkimverifyconfigure.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libexpireaccounttrashfolderconfig.so.5
-%attr(755,root,root) %{_libdir}/libexpireaccounttrashfolderconfig.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfolderconfiguresettings.so.5
-%attr(755,root,root) %{_libdir}/libfolderconfiguresettings.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkmailmarkdown.so.5
-%attr(755,root,root) %{_libdir}/libkmailmarkdown.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkmailquicktextpluginprivate.so.5
-%attr(755,root,root) %{_libdir}/libkmailquicktextpluginprivate.so.5.*.*
+%ghost %{_libdir}/libdkimverifyconfigure.so.5
+%attr(755,root,root) %{_libdir}/libdkimverifyconfigure.so.*.*.*
+%ghost %{_libdir}/libexpireaccounttrashfolderconfig.so.5
+%attr(755,root,root) %{_libdir}/libexpireaccounttrashfolderconfig.so.*.*.*
+%ghost %{_libdir}/libfolderconfiguresettings.so.5
+%attr(755,root,root) %{_libdir}/libfolderconfiguresettings.so.*.*.*
+%ghost %{_libdir}/libkmailmarkdown.so.5
+%attr(755,root,root) %{_libdir}/libkmailmarkdown.so.*.*.*
+%ghost %{_libdir}/libkmailquicktextpluginprivate.so.5
+%attr(755,root,root) %{_libdir}/libkmailquicktextpluginprivate.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/akonadi/emailaddressselectionldapdialogplugin.so
 %dir %{_libdir}/qt5/plugins/kaddressbook
 %dir %{_libdir}/qt5/plugins/kaddressbook/importexportplugin
