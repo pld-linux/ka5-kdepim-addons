@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	070c9f8dd9e49937c21365254349b8cd
+# Source0-md5:	d861f4914b4b790020971093d8b6b02b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -132,7 +132,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/plugins/libksieve
 %attr(755,root,root) %{_libdir}/qt5/plugins/libksieve/emaillineeditplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/libksieve/imapfoldercompletionplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/libksieve/regexpeditorlineeditplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/mailtransport/mailtransport_sendplugin.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasmacalendarplugins/pimevents.so
@@ -250,6 +249,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kconf_update/languagetool_kmail.upd
 %{_datadir}/qlogging-categories5/kdepim-addons.categories
 %{_datadir}/qlogging-categories5/kdepim-addons.renamecategories
+%ghost %{_libdir}/libkmailconfirmbeforedeleting.so.5
+%{_libdir}/libkmailconfirmbeforedeleting.so.5.*.*
+%dir %{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting
+%{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting/kmail_confirmbeforedeletingplugin.so
 
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/CMakeLists.txt
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/plugin.json.impl
