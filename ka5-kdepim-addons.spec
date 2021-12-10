@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.3
+%define		kdeappsver	21.12.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	278d51c3b22db01d214860cf0c81797e
+# Source0-md5:	0a54cc18c3946d328901abbabcdae4bb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -253,6 +253,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkmailconfirmbeforedeleting.so.5.*.*
 %dir %{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting
 %{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting/kmail_confirmbeforedeletingplugin.so
+%ghost %{_libdir}/libscamconfiguresettings.so.5
+%{_libdir}/libscamconfiguresettings.so.5.*.*
+%{_libdir}/qt5/plugins/korg_lunarphases.so
+%{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_scamconfiguresettingsplugin.so
+%{_iconsdir}/hicolor/scalable/status/moon-phase-first-quarter.svg
+%{_iconsdir}/hicolor/scalable/status/moon-phase-full.svg
+%{_iconsdir}/hicolor/scalable/status/moon-phase-last-quarter.svg
+%{_iconsdir}/hicolor/scalable/status/moon-phase-new.svg
+%{_datadir}/kservices5/korganizer/lunarphases.desktop
+
 
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/CMakeLists.txt
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/plugin.json.impl
