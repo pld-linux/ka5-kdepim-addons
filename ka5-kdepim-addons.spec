@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kdepim-addons
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	0a3b470c5882ffe8af98867d2fd108c4
+# Source0-md5:	02ab4e361609136068ca2480f37aa0e5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -132,34 +132,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkmailgrammalecte.so.*.*.*
 %ghost %{_libdir}/libkmaillanguagetool.so.5
 %attr(755,root,root) %{_libdir}/libkmaillanguagetool.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/evolutionv1importerplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/evolutionv2importerplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/gearyimporterplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/importwizard/operaimporterplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/korg_datenums.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/korg_picoftheday.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/korg_thisdayinhistory.so
-%dir %{_libdir}/qt5/plugins/libksieve
-%attr(755,root,root) %{_libdir}/qt5/plugins/libksieve/emaillineeditplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/libksieve/imapfoldercompletionplugin.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasmacalendarplugins/pimevents.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins/pimevents
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasmacalendarplugins/pimevents/PimEventsConfig.qml
-%dir %{_libdir}/qt5/plugins/templateparser
-%attr(755,root,root) %{_libdir}/qt5/plugins/templateparser/templateparseraddressrequesterplugin.so
 %dir %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/libpimcalendarsplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/PimCalendars/qmldir
 %{_datadir}/kconf_update/webengineurlinterceptoradblock.upd
-%dir %{_datadir}/kservices5/korganizer
-%{_datadir}/kservices5/korganizer/datenums.desktop
-%{_datadir}/kservices5/korganizer/picoftheday.desktop
-%{_datadir}/kservices5/korganizer/thisdayinhistory.desktop
 
-%dir %{_libdir}/contacteditor
-%dir %{_libdir}/contacteditor/editorpageplugins
-%attr(755,root,root) %{_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
 %ghost %{_libdir}/libdkimverifyconfigure.so.5
 %attr(755,root,root) %{_libdir}/libdkimverifyconfigure.so.*.*.*
 %ghost %{_libdir}/libexpireaccounttrashfolderconfig.so.5
@@ -170,111 +151,119 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkmailmarkdown.so.*.*.*
 %ghost %{_libdir}/libkmailquicktextpluginprivate.so.5
 %attr(755,root,root) %{_libdir}/libkmailquicktextpluginprivate.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/akonadi/emailaddressselectionldapdialogplugin.so
-%dir %{_libdir}/qt5/plugins/kaddressbook
-%dir %{_libdir}/qt5/plugins/kaddressbook/importexportplugin
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportldapplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportldifplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportvcardplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/importexportplugin/kaddressbook_importexportwindowscontactplugin.so
-%dir %{_libdir}/qt5/plugins/kaddressbook/mainview
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/mainview/kaddressbook_checkgravatarplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/mainview/kaddressbook_mergecontactsplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/mainview/kaddressbook_sendmailplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kaddressbook/mainview/kaddressbook_sendvcardsplugin.so
-%dir %{_libdir}/qt5/plugins/kmail
-%dir %{_libdir}/qt5/plugins/kmail/mainview
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/mainview/kmail_antispamplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/mainview/kmail_antivirusplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/mainview/kmail_expertplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/mainview/kmail_logactivitiesplugin.so
-%dir %{_libdir}/qt5/plugins/kmail/plugincheckbeforesend
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugincheckbeforesend/kmail_automaticaddcontactseditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugincheckbeforesend/kmail_checkbeforesendeditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugincheckbeforesend/kmail_confirmaddresseditorplugin.so
-%dir %{_libdir}/qt5/plugins/kmail/plugineditor
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_autocorrectioneditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_changecaseeditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_insertemaileditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_insertshorturleditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_insertspecialcharactereditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_nonbreakingspaceeditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_quicktextplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_sharetexteditorplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditor/kmail_zoomtexteditorplugin.so
-%dir %{_libdir}/qt5/plugins/kmail/plugineditorconverttext
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditorconverttext/kmail_markdownplugin.so
-%dir %{_libdir}/qt5/plugins/kmail/plugineditorgrammar
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditorgrammar/kmail_grammalecteplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditorgrammar/kmail_languagetoolplugin.so
-%dir %{_libdir}/qt5/plugins/kmail/plugineditorinit
-%attr(755,root,root) %{_libdir}/qt5/plugins/kmail/plugineditorinit/kmail_externalcomposereditorplugin.so
-%dir %{_libdir}/qt5/plugins/messageviewer
-%dir %{_libdir}/qt5/plugins/messageviewer/bodypartformatter
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_application_gnupgwks.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_application_mstnef.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_pkpass.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_semantic.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_calendar.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_highlighter.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_markdown.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_vcard.so
-%dir %{_libdir}/qt5/plugins/messageviewer/configuresettings
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_dkimconfigplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_expireaccounttrashfolderconfigplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_folderconfiguresettingsplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_gravatarconfigplugin.so
-%dir %{_libdir}/qt5/plugins/messageviewer/grantlee
-%dir %{_libdir}/qt5/plugins/messageviewer/grantlee/5.0
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/grantlee/5.0/kitinerary_grantlee_extension.so
-%dir %{_libdir}/qt5/plugins/messageviewer/headerstyle
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/headerstyle/messageviewer_briefheaderstyleplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/headerstyle/messageviewer_fancyheaderstyleplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/headerstyle/messageviewer_grantleeheaderstyleplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/headerstyle/messageviewer_longheaderstyleplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/headerstyle/messageviewer_standardsheaderstyleplugin.so
-%dir %{_libdir}/qt5/plugins/messageviewer/viewercommonplugin
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewercommonplugin/messageviewer_expandurlplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewercommonplugin/messageviewer_translatorplugin.so
-%dir %{_libdir}/qt5/plugins/messageviewer/viewerplugin
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewerplugin/messageviewer_createeventplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewerplugin/messageviewer_createnoteplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewerplugin/messageviewer_createtodoplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/viewerplugin/messageviewer_externalscriptplugin.so
-%dir %{_libdir}/qt5/plugins/pimcommon
-%dir %{_libdir}/qt5/plugins/pimcommon/customtools
-%attr(755,root,root) %{_libdir}/qt5/plugins/pimcommon/customtools/pimcommon_translatorplugin.so
-%dir %{_libdir}/qt5/plugins/pimcommon/shorturlengine
-%attr(755,root,root) %{_libdir}/qt5/plugins/pimcommon/shorturlengine/pimcommon_isgdshorturlengineplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/pimcommon/shorturlengine/pimcommon_tinyurlengineplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/pimcommon/shorturlengine/pimcommon_triopabshorturlengineplugin.so
-%dir %{_libdir}/qt5/plugins/webengineviewer
-%dir %{_libdir}/qt5/plugins/webengineviewer/urlinterceptor
-%attr(755,root,root) %{_libdir}/qt5/plugins/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
 %{_datadir}/kconf_update/languagetool_kmail.upd
 %{_datadir}/qlogging-categories5/kdepim-addons.categories
 %{_datadir}/qlogging-categories5/kdepim-addons.renamecategories
 %ghost %{_libdir}/libkmailconfirmbeforedeleting.so.5
 %attr(755,root,root) %{_libdir}/libkmailconfirmbeforedeleting.so.5.*.*
-%dir %{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/checkbeforedeleting/kmail_confirmbeforedeletingplugin.so
 %ghost %{_libdir}/libscamconfiguresettings.so.5
 %attr(755,root,root) %{_libdir}/libscamconfiguresettings.so.5.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/korg_lunarphases.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_scamconfiguresettingsplugin.so
 %{_iconsdir}/hicolor/scalable/status/moon-phase-first-quarter.svg
 %{_iconsdir}/hicolor/scalable/status/moon-phase-full.svg
 %{_iconsdir}/hicolor/scalable/status/moon-phase-last-quarter.svg
 %{_iconsdir}/hicolor/scalable/status/moon-phase-new.svg
-%{_datadir}/kservices5/korganizer/lunarphases.desktop
 %ghost %{_libdir}/libopenurlwithconfigure.so.5
 %attr(755,root,root) %{_libdir}/libopenurlwithconfigure.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/mailtransport/mailtransport_sendplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/messageviewer/configuresettings/messageviewer_openurlwithconfigplugin.so
+
+%ghost %{_libdir}/libakonadidatasetools.so.5
+%{_libdir}/libakonadidatasetools.so.*.*.*
+%{_libdir}/qt5/plugins/pim5/akonadi/emailaddressselectionldapdialogplugin.so
+%{_libdir}/qt5/plugins/pim5/contacteditor/editorpageplugins/cryptopageplugin.so
+%{_libdir}/qt5/plugins/pim5/importwizard/evolutionv1importerplugin.so
+%{_libdir}/qt5/plugins/pim5/importwizard/evolutionv2importerplugin.so
+%{_libdir}/qt5/plugins/pim5/importwizard/gearyimporterplugin.so
+%{_libdir}/qt5/plugins/pim5/importwizard/operaimporterplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportldapplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportldifplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportvcardplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportwindowscontactplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kaddressbook/mainview
+%{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_checkgravatarplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_mergecontactsplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_sendmailplugin.so
+%{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_sendvcardsplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/mainview
+%{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_akonadidatabasetoolplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_antispamplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_antivirusplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_expertplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/plugincheckbeforesend
+%{_libdir}/qt5/plugins/pim5/kmail/plugincheckbeforesend/kmail_automaticaddcontactseditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugincheckbeforesend/kmail_checkbeforesendeditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugincheckbeforesend/kmail_confirmaddresseditorplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/plugineditor
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_autocorrectioneditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_changecaseeditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_insertemaileditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_insertshorturleditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_insertspecialcharactereditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_nonbreakingspaceeditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_quicktextplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_sharetexteditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_zoomtexteditorplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditorconverttext/kmail_markdownplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditorgrammar/kmail_grammalecteplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditorgrammar/kmail_languagetoolplugin.so
+%{_libdir}/qt5/plugins/pim5/kmail/plugineditorinit/kmail_externalcomposereditorplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/korganizer
+%{_libdir}/qt5/plugins/pim5/korganizer/datenums.so
+%{_libdir}/qt5/plugins/pim5/korganizer/lunarphases.so
+%{_libdir}/qt5/plugins/pim5/korganizer/picoftheday.so
+%{_libdir}/qt5/plugins/pim5/korganizer/thisdayinhistory.so
+%dir %{_libdir}/qt5/plugins/pim5/libksieve
+%{_libdir}/qt5/plugins/pim5/libksieve/emaillineeditplugin.so
+%{_libdir}/qt5/plugins/pim5/libksieve/imapfoldercompletionplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_application_gnupgwks.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_application_mstnef.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_pkpass.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_semantic.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_calendar.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_highlighter.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_markdown.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_vcard.so
+%dir %{_libdir}/qt5/plugins/pim5/messageviewer/checkbeforedeleting
+%{_libdir}/qt5/plugins/pim5/messageviewer/checkbeforedeleting/kmail_confirmbeforedeletingplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_dkimconfigplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_expireaccounttrashfolderconfigplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_folderconfiguresettingsplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_gravatarconfigplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_openurlwithconfigplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/configuresettings/messageviewer_scamconfiguresettingsplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/grantlee/5.0/kitinerary_grantlee_extension.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/headerstyle/messageviewer_briefheaderstyleplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/headerstyle/messageviewer_fancyheaderstyleplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/headerstyle/messageviewer_grantleeheaderstyleplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/headerstyle/messageviewer_longheaderstyleplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/headerstyle/messageviewer_standardsheaderstyleplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/messageviewer/viewercommonplugin
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewercommonplugin/messageviewer_expandurlplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewercommonplugin/messageviewer_translatorplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_createeventplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_createnoteplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_createtodoplugin.so
+%{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_externalscriptplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/pimcommon/customtools
+%{_libdir}/qt5/plugins/pim5/pimcommon/customtools/pimcommon_translatorplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/pimcommon/shorturlengine
+%{_libdir}/qt5/plugins/pim5/pimcommon/shorturlengine/pimcommon_isgdshorturlengineplugin.so
+%{_libdir}/qt5/plugins/pim5/pimcommon/shorturlengine/pimcommon_tinyurlengineplugin.so
+%{_libdir}/qt5/plugins/pim5/pimcommon/shorturlengine/pimcommon_triopabshorturlengineplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/templateparser
+%{_libdir}/qt5/plugins/pim5/templateparser/templateparseraddressrequesterplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/webengineviewer
+%dir %{_libdir}/qt5/plugins/pim5/webengineviewer/urlinterceptor
+%{_libdir}/qt5/plugins/pim5/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
+%{_libdir}/qt5/plugins/pim5/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
+
+
 
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/CMakeLists.txt
 #%{_datadir}/qtcreator/templates/kmaileditorconvertertextplugins/plugin.json.impl
