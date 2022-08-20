@@ -8,7 +8,7 @@
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
 Version:	22.08.0
-Release:	4
+Release:	5
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -170,7 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libakonadidatasetools.so.*.*.*
 %{_libdir}/qt5/plugins/pim5/akonadi/emailaddressselectionldapdialogplugin.so
 %dir %{_libdir}/qt5/plugins/pim5/contacteditor
-%dir %{_libdir}/qt5/plugins/pim5/contacteditoreditorpageplugins
+%dir %{_libdir}/qt5/plugins/pim5/contacteditor/editorpageplugins
 %{_libdir}/qt5/plugins/pim5/contacteditor/editorpageplugins/cryptopageplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/evolutionv1importerplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/evolutionv2importerplugin.so
