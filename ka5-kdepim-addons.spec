@@ -8,7 +8,7 @@
 Summary:	kdepim addons
 Name:		ka5-%{kaname}
 Version:	22.08.0
-Release:	3
+Release:	4
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -169,11 +169,14 @@ rm -rf $RPM_BUILD_ROOT
 %ghost %{_libdir}/libakonadidatasetools.so.5
 %{_libdir}/libakonadidatasetools.so.*.*.*
 %{_libdir}/qt5/plugins/pim5/akonadi/emailaddressselectionldapdialogplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/contacteditor
+%dir %{_libdir}/qt5/plugins/pim5/contacteditoreditorpageplugins
 %{_libdir}/qt5/plugins/pim5/contacteditor/editorpageplugins/cryptopageplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/evolutionv1importerplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/evolutionv2importerplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/gearyimporterplugin.so
 %{_libdir}/qt5/plugins/pim5/importwizard/operaimporterplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kaddressbook
 %dir %{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin
 %{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
 %{_libdir}/qt5/plugins/pim5/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
@@ -187,6 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
 %{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_sendmailplugin.so
 %{_libdir}/qt5/plugins/pim5/kaddressbook/mainview/kaddressbook_sendvcardsplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail
 %dir %{_libdir}/qt5/plugins/pim5/kmail/mainview
 %{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_akonadidatabasetoolplugin.so
 %{_libdir}/qt5/plugins/pim5/kmail/mainview/kmail_antispamplugin.so
@@ -206,9 +210,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_quicktextplugin.so
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_sharetexteditorplugin.so
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditor/kmail_zoomtexteditorplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/plugineditorconverttext
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditorconverttext/kmail_markdownplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/plugineditorgrammar
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditorgrammar/kmail_grammalecteplugin.so
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditorgrammar/kmail_languagetoolplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/kmail/plugineditorinit
 %{_libdir}/qt5/plugins/pim5/kmail/plugineditorinit/kmail_externalcomposereditorplugin.so
 %dir %{_libdir}/qt5/plugins/pim5/korganizer
 %{_libdir}/qt5/plugins/pim5/korganizer/datenums.so
@@ -250,6 +257,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_createnoteplugin.so
 %{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_createtodoplugin.so
 %{_libdir}/qt5/plugins/pim5/messageviewer/viewerplugin/messageviewer_externalscriptplugin.so
+%dir %{_libdir}/qt5/plugins/pim5/pimcommon
 %dir %{_libdir}/qt5/plugins/pim5/pimcommon/customtools
 %{_libdir}/qt5/plugins/pim5/pimcommon/customtools/pimcommon_translatorplugin.so
 %dir %{_libdir}/qt5/plugins/pim5/pimcommon/shorturlengine
