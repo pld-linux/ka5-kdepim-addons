@@ -27,7 +27,6 @@ BuildRequires:	Qt5WebEngine-devel
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	gpgme-qt5-devel >= 1.8.0
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-contacts-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
@@ -68,6 +67,7 @@ BuildRequires:	kf5-prison-devel >= %{kframever}
 BuildRequires:	kf5-syntax-highlighting-devel >= %{kframever}
 BuildRequires:	libmarkdown-devel
 BuildRequires:	ninja
+BuildRequires:	qgpgme-qt5-devel >= 1.8.0
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
